@@ -2,15 +2,20 @@ public class CoinCombiner {
 
     public static int findCombinationsCount(int suma, int vals[]) {
 
-        int index[] = new int[suma + 1];
-        index[0] = 1;
+        if (suma < 1) {
+            return 0;
+        }
+        //TODO:add rules for unused vals
+
+        int dp[] = new int[suma + 1];
+        dp[0] = 1;
         for (int i = 0; i < vals.length; ++i) {
             for (int j = vals[i]; j <= suma; ++j) {
-                index[j] += index[j - vals[i]];
+                dp[j] += dp[j - vals[i]];
             }
         }
 
-        return index[suma];
+        return dp[suma];
     }
 
     public static void main(String[] args) {
