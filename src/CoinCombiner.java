@@ -5,7 +5,10 @@ public class CoinCombiner {
         if (suma < 1) {
             return 0;
         }
-        //TODO:add rules for unused vals
+
+        if (vals.length == 0) {
+            return 0;
+        }
 
         int dp[] = new int[suma + 1];
         dp[0] = 1;
